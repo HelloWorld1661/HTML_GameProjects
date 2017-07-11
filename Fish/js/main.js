@@ -10,6 +10,7 @@ var ctx2;
 
 var bgPic = new Image();
 var ane;
+var fruit; 
 
 document.body.onload = game;
 function game(){
@@ -19,7 +20,7 @@ function game(){
 function init(){
 	can1 =document.getElementById("canvas1");	//fish, dust, UI circle
 	ctx1=can1.getContext('2d');
-	can2 =document.getElementById("canvas2");	//anemone
+	can2 =document.getElementById("canvas2");	//anemone, fruits
 	ctx2=can2.getContext('2d');
 	can3 =document.getElementById("canvas3");	//background
 	ctx3=can3.getContext('2d');
@@ -33,8 +34,13 @@ function init(){
 
 	ane = new aneObj();
 	ane.init();
-	// window.setTimeout(gameloop, 35);
-	gameloop();
+
+	fruit = new fruitObj();
+	fruit.init();
+
+
+
+	window.setTimeout(gameloop, 35);
 }
 
 function gameloop(){
@@ -42,6 +48,8 @@ function gameloop(){
 	// clearCan1();
 	clearCan2();
 	ane.draw();
+
+	fruit.draw();
 }
 
 
