@@ -8,6 +8,9 @@ var canHeight;
 var ctx1;
 var ctx2;
 
+var deltaTime;
+var lastTime;
+
 var bgPic = new Image();
 var ane;
 var fruit; 
@@ -15,6 +18,8 @@ var fruit;
 document.body.onload = game;
 function game(){
 	init();
+	lastTime = Date.now();
+	deltaTime = 0;
 }
 
 function init(){
@@ -45,6 +50,11 @@ function init(){
 
 function gameloop(){
 	window.setTimeout(gameloop, 1000 / 60);
+	var now = Date.now();
+	deltaTime = now -lastTime;
+	lastTime = now;
+
+
 	// clearCan1();
 	clearCan2();
 	ane.draw();
