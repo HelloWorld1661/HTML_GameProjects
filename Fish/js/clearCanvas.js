@@ -1,3 +1,4 @@
+"use strict";
 function clearCan1(){
 	ctx1.clearRect(0,0,canWidth,canHeight);
 }
