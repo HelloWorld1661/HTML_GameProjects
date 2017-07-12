@@ -4,6 +4,7 @@ var fruitObj = function(){
 	this.y = [];
 	this.l = []; // fruit image's length
 	this.spd = [];
+	this.fruitType = []; 
 	this.orange = new Image();
 	this.blue = new Image();
 }
@@ -12,11 +13,11 @@ fruitObj.prototype.num = 30;
 
 fruitObj.prototype.init = function(){
 	for(var i=0; i<this.num; i++){
-		this.alive[i] = true;
+		this.alive[i] = false;
 		this.x[i] = 0;
 		this.y[i] = 0;
-		this.spd[i] = Math.random() * 0.01 + 0.005;// [0.005, 0.015)]
-		this.born(i);
+		this.spd[i] = Math.random() * 0.017 + 0.003;// [0.003, 0.02)]
+		// this.born(i);
 	}
 
 	this.orange.src = "./src/orange.png";
@@ -24,19 +25,23 @@ fruitObj.prototype.init = function(){
 }
 
 fruitObj.prototype.draw = function(){
+
 	for(var i=0; i<this.num; i++){
 		// 1) draw
 		// 2) find an anemone, grow, fly up
+		if(this.alive[i] ){
+			if(this.l[i] <= 15){
+				this.l[i] += this.spd[i] * deltaTime;
+			}else{
+				this.y[i] -= this.spd[i] * 3 * deltaTime;
+			}
 
-		if(this.l[i] <= 15){
-			this.l[i] += this.spd[i] * deltaTime;
-		}else{
-			this.y[i] -= this.spd[i] * 3 * deltaTime;
+			ctx2.drawImage(this.orange,  this.x[i]- this.l[i]*0.5,  this.y[i]- this.l[i]*0.5,  this.l[i], this.l[i] );
+
+			if(this.y[i]<10){
+				this.alive[i] =false;
+			}
 		}
-
-		
-		// ctx2.drawImage(this.orange, this.x[i]-this.orange.width*0.5, this.y[i]-this.orange.height*0.5);
-		ctx2.drawImage(this.orange,  this.x[i]- this.l[i]*0.5,  this.y[i]- this.l[i]*0.5,  this.l[i], this.l[i] );
 	}
 }
 
@@ -45,15 +50,48 @@ fruitObj.prototype.born = function(i){
 	this.x[i] = ane.x[aneID];
 	this.y[i] = canHeight-ane.len[aneID];
 	this.l[i] = 0;
+	this.alive[i] = true;
 
 }
 
-
-fruitObj.prototype.update = function(){
+function fruitMonitor(){
 	var num = 0;
-	for(var i=0; i<this.num; i++){
-		if(this.alive[i]){
+	for(var i = 0; i < fruit.num; i++){
+		if(fruit.alive[i]){
 			num++;
 		}
 	}
+	if(num <15){
+		//send fruit
+		sendFruit()
+		return;
+	}
 }
+
+function sendFruit(){
+	for(var i=0; i<fruit.num; i++){
+		if(!fruit.alive[i]){
+			fruit.born(i);
+			return;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+// fruitObj.prototype.update = function(){
+// 	var num = 0;
+// 	for(var i=0; i<this.num; i++){
+// 		if(this.alive[i]){
+// 			num++;
+// 		}
+// 	}
+// }

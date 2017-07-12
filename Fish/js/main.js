@@ -54,12 +54,12 @@ function gameloop(){
 	deltaTime = now -lastTime;
 	lastTime = now;
 
-
-	// clearCan1();
 	clearCan2();
 	ane.draw();
 
+	fruitMonitor();
 	fruit.draw();
+
 }
 
 
