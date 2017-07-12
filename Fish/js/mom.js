@@ -35,17 +35,17 @@ momObj.prototype.draw = function() {
 
 
 	//lerp  x, y
-	this.x = lerpDistance(mx, this.x,0.8);
-	this.y = lerpDistance(my, this.y,0.8);
+	this.x = lerpDistance(mx, this.x,0.98);
+	this.y = lerpDistance(my, this.y,0.98);
 
 	//delta angle
 	//Math.atan2(y,x)
-	// var deltaY = my - this.y;
-	// var deltaX = mx = this.x;
-	// var beta = Math.atan2(deltaY, deltaX); // -π, π
+	var deltaY = my - this.y;
+	var deltaX = mx - this.x;
+	var beta = Math.atan2(deltaY, deltaX) + Math.PI; // -π, π
 
 	//lerp angle
-	// this.angle = lerpAngle(beta, this.angle, 0.9);
+	this.angle = lerpAngle(beta, this.angle, 0.9); 
 
 
 	ctx1.save();

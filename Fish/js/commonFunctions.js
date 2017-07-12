@@ -31,12 +31,14 @@ function changeDirection(traget, now, percentage) {  /*返回值就是旋转后�
 	if (d < -Math.PI) d = d + 2 * Math.PI;
 	return traget + d * percentage;
 }
-function lerpAngle(traget, now, percentage) {  /*返回值就是旋转后的值*/
-	var d = now - traget;
+function lerpAngle(a, b, t) {  /*返回值就是旋转后的值*/
+	var d = b - a;
 	if (d > Math.PI) d = d - 2 * Math.PI;
 	if (d < -Math.PI) d = d + 2 * Math.PI;
-	return traget + d * percentage;
+	return a + d * t;
 }
+
+
 
 function goHere(target,now, percentage) {   /*返回值就是移动后的位置*/
 	var delta = now - target;
@@ -44,8 +46,11 @@ function goHere(target,now, percentage) {   /*返回值就是移动后的位置*
 }
 function lerpDistance(target,now, percentage) {   /*返回值就是移动后的位置*/
 	var delta = now - target;
+	// var delta =  target -now ;
 	return target + delta * percentage;
 }
+
+
 
 function inOboundary(arrX, arrY, l, r, t, b) { //在l r t b范围内的检测
 	return arrX > l && arrX < r && arrY > t && arrY < b;
