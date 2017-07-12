@@ -12,8 +12,11 @@ var deltaTime;
 var lastTime;
 
 var bgPic = new Image();
+
 var ane;
 var fruit; 
+
+var mom;
 
 document.body.onload = game;
 function game(){
@@ -43,6 +46,9 @@ function init(){
 	fruit = new fruitObj();
 	fruit.init();
 
+	mom = new momObj();
+	mom.init();
+
 
 
 	window.setTimeout(gameloop, 35);
@@ -59,6 +65,9 @@ function gameloop(){
 
 	fruitMonitor();
 	fruit.draw();
+
+	clearCan1();
+	mom.draw();
 
 }
 
