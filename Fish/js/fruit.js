@@ -1,3 +1,6 @@
+
+
+
 var fruitObj = function(){
 	this.alive = []; //bool 
 	this.x = [];
@@ -17,7 +20,7 @@ fruitObj.prototype.init = function(){
 		this.x[i] = 0;
 		this.y[i] = 0;
 		this.spd[i] = Math.random() * 0.017 + 0.003;// [0.003, 0.02)]
-		// this.born(i);
+		this.fruitType[i] = "";
 	}
 
 	this.orange.src = "./src/orange.png";
@@ -26,17 +29,25 @@ fruitObj.prototype.init = function(){
 
 fruitObj.prototype.draw = function(){
 
+	var pic;
+
 	for(var i=0; i<this.num; i++){
 		// 1) draw
 		// 2) find an anemone, grow, fly up
-		if(this.alive[i] ){
+		if(this.alive[i]){
+			if(this.fruitType[i] == "blue"){
+				pic = this.blue;
+			}else{
+				pic = this.orange;
+			}
+
 			if(this.l[i] <= 15){
 				this.l[i] += this.spd[i] * deltaTime;
 			}else{
 				this.y[i] -= this.spd[i] * 3 * deltaTime;
 			}
 
-			ctx2.drawImage(this.orange,  this.x[i]- this.l[i]*0.5,  this.y[i]- this.l[i]*0.5,  this.l[i], this.l[i] );
+			ctx2.drawImage(pic,  this.x[i]- this.l[i]*0.5,  this.y[i]- this.l[i]*0.5,  this.l[i], this.l[i] );
 
 			if(this.y[i]<10){
 				this.alive[i] =false;
@@ -52,6 +63,12 @@ fruitObj.prototype.born = function(i){
 	this.l[i] = 0;
 	this.alive[i] = true;
 
+	var ran = Math.random();
+	if(ran < 0.2){
+		this.fruitType[i] = "blue"; //orange, blue
+	}else{
+		this.fruitType[i] = "orange"
+	}
 }
 
 function fruitMonitor(){
@@ -63,7 +80,7 @@ function fruitMonitor(){
 	}
 	if(num <15){
 		//send fruit
-		sendFruit()
+		sendFruit();
 		return;
 	}
 }
@@ -83,15 +100,3 @@ function sendFruit(){
 
 
 
-
-
-
-
-// fruitObj.prototype.update = function(){
-// 	var num = 0;
-// 	for(var i=0; i<this.num; i++){
-// 		if(this.alive[i]){
-// 			num++;
-// 		}
-// 	}
-// }
