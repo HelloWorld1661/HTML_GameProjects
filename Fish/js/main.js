@@ -31,8 +31,6 @@ function game(){
 	lastTime = Date.now();
 	deltaTime = 0;
 	gameloop();
-	
-	// window.setTimeout(gameloop, 35);
 }
 
 function init(){
@@ -43,13 +41,10 @@ function init(){
 	can3 =document.getElementById("canvas3");	//background
 	ctx3=can3.getContext('2d');
 
-	can1.addEventListener('mosemove',onMouseMove, false);
-
-	
+	can1.addEventListener('mousemove',onMouseMove, false);
 
 	canWidth = can1.width;
 	canHeight = can1.height;
-
 
 	drawBackround();
 
@@ -67,10 +62,8 @@ function init(){
 }
 
 function gameloop(){
-
 	window.requestAnimFrame(gameloop);
 
-	// window.setTimeout(gameloop, 1000 / 60);
 	var now = Date.now();
 	deltaTime = now -lastTime;
 	lastTime = now;
@@ -90,7 +83,6 @@ function onMouseMove(e){
 	if(e.offSetX || e.layerX){
 		mx = e.offsetX == undefined ? e.layerX : e.offsetX;
 		my = e.offsetY == undefined ? e.layerY : e.offsetY;
-		console.log(mx);
 	}
 }
 

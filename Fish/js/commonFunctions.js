@@ -9,7 +9,7 @@ window.requestAnimFrame = (function() {    /*FPS*/
 function getLength2(x1, y1, x2, y2) {   /*得到距离的平方*/
 	return Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2);
 }
-
+ 
 
 function randomColor() {
 	var col = [0, 1, 2];
@@ -31,9 +31,19 @@ function changeDirection(traget, now, percentage) {  /*返回值就是旋转后�
 	if (d < -Math.PI) d = d + 2 * Math.PI;
 	return traget + d * percentage;
 }
+function lerpAngle(traget, now, percentage) {  /*返回值就是旋转后的值*/
+	var d = now - traget;
+	if (d > Math.PI) d = d - 2 * Math.PI;
+	if (d < -Math.PI) d = d + 2 * Math.PI;
+	return traget + d * percentage;
+}
 
 function goHere(target,now, percentage) {   /*返回值就是移动后的位置*/
-	var delta = target - now;
+	var delta = now - target;
+	return target + delta * percentage;
+}
+function lerpDistance(target,now, percentage) {   /*返回值就是移动后的位置*/
+	var delta = now - target;
 	return target + delta * percentage;
 }
 
