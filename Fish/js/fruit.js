@@ -71,6 +71,10 @@ fruitObj.prototype.born = function(i){
 	}
 }
 
+fruitObj.prototype.dead = function(i) {
+	this.alive[i]= false;
+}
+
 function fruitMonitor(){
 	var num = 0;
 	for(var i = 0; i < fruit.num; i++){

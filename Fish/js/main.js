@@ -77,6 +77,8 @@ function gameloop(){
 	clearCan1();
 	mom.draw();
 
+	momFruitsCollision();
+
 }
 
 function onMouseMove(e){
