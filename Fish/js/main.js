@@ -99,10 +99,13 @@ function gameloop(){
 
 	clearCan1();
 	mom.draw();
-
 	baby.draw();
-
+	
 	momFruitsCollision();
+	momBabyCollision();
+	
+
+
 
 }
 

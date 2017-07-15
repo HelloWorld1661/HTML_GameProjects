@@ -9,7 +9,15 @@ function momFruitsCollision(){
 				//fruit.eaten
 				fruit.dead(i);
 			}
-
 		}
+	}
+}
+
+//mom baby collision
+function momBabyCollision(){
+	var l  = getLength2(mom.x, mom.y, baby.x, baby.y)
+	if(l < 900){
+		//baby recover
+		baby.babyBodyCount  = 0;
 	}
 }

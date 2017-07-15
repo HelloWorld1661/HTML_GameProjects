@@ -15,7 +15,7 @@ var babyObj = function(){
 	this.babyEyeInterval = 1000;
 
 	this.babyBodyTimer = 0;
-	this.babyBodyCount = 0;
+	this.babyBodyCount = 0;	//it for live of baby fish
 }
 
 babyObj.prototype.init = function(){
