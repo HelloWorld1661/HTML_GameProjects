@@ -34,6 +34,8 @@ var babyBody = [];
 var data;
 var wave;
 
+var halo;
+
 
 
 
@@ -116,6 +118,9 @@ function init(){
 
 	wave = new waveObj();
 	wave.init();
+
+	halo = new haloObj();
+	halo.init();
 }
 
 function gameloop(){
@@ -140,7 +145,10 @@ function gameloop(){
 	momBabyCollision();
 
 	data.draw();
+
 	wave.draw();
+	
+	halo.draw();
 	
 
 
