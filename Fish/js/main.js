@@ -32,6 +32,10 @@ var babyEye = [];
 var babyBody = [];
 
 var data;
+var wave;
+
+
+
 
 //the mouse's position
 var mx;
@@ -109,7 +113,9 @@ function init(){
 	//for drawing score
 	ctx1.font ="30px Roboto";
 	ctx1.textAlign = "center"; //left, center, right
-	
+
+	wave = new waveObj();
+	wave.init();
 }
 
 function gameloop(){
@@ -134,6 +140,7 @@ function gameloop(){
 	momBabyCollision();
 
 	data.draw();
+	wave.draw();
 	
 
 

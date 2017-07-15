@@ -7,7 +7,7 @@ function momFruitsCollision(){
 				//calculate length
 				var l = getLength2(fruit.x[i],fruit.y[i], mom.x,mom.y);
 				if(l < 900){
-					//fruit.eaten
+					//fruit eaten
 					fruit.dead(i);
 					data.fruitNum++;
 					mom.momBodyCount++;
@@ -18,6 +18,8 @@ function momFruitsCollision(){
 					{
 						data.double = 2;
 					}
+
+					wave.born(fruit.x[i], fruit.y[i]);
 				}
 			}
 		}
