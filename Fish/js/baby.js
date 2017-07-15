@@ -83,7 +83,6 @@ babyObj.prototype.draw = function(){
 	ctx1.drawImage(babyTail[babyTailCount],  -babyTail[babyTailCount].width*0.5+25,  -babyTail[babyTailCount].height*0.5);
 
 	var babyBodyCount = this.babyBodyCount;
-	console.log(babyBodyCount);
 	ctx1.drawImage(babyBody[babyBodyCount],  -babyBody[babyBodyCount].width*0.5,  -babyBody[babyBodyCount].height*0.5);
 
 	var babyEyeCount = this.babyEyeCount;

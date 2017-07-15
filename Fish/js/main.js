@@ -21,11 +21,17 @@ var ane;
 var fruit; 
 
 var mom;
+var momTail = [];
+var momEye = [];
+var momBodyOra = [];
+var momBodyBlue = [];
 
 var baby
 var babyTail = [];
 var babyEye = [];
 var babyBody = [];
+
+var data;
 
 //the mouse's position
 var mx;
@@ -68,7 +74,7 @@ function init(){
 
 	mx = canWidth*0.5;
 	my = canHeight*0.5;
-
+	// baby fish
 	for(var i=0; i<8; i++){
 		babyTail[i] = new Image(); 
 		babyTail[i].src = "./src/babyTail" + i + ".png";
@@ -81,6 +87,25 @@ function init(){
 		babyBody[i] = new Image();
 		babyBody[i].src = "./src/babyFade" + i + ".png";
 	}
+	// mom fish 
+	for(var i=0; i<8; i++){
+		momTail[i] = new Image(); 
+		momTail[i].src = "./src/bigTail" + i + ".png";
+	}
+	for(var i=0; i<2; i++){
+		momEye[i] = new Image();
+		momEye[i].src = "./src/bigEye" + i + ".png";
+	}
+
+	data = new dataObj(); 
+	
+	for(var i=0; i<8; i++){
+		momBodyOra[i] = new Image(); 
+		momBodyBlue[i] = new Image(); 
+		momBodyOra[i].src = "./src/bigSwim" + i + ".png";
+		momBodyBlue[i].src = "./src/bigSwimBlue" + i + ".png";
+	}
+	
 }
 
 function gameloop(){
@@ -100,9 +125,11 @@ function gameloop(){
 	clearCan1();
 	mom.draw();
 	baby.draw();
-	
+
 	momFruitsCollision();
 	momBabyCollision();
+
+	data.draw();
 	
 
 
