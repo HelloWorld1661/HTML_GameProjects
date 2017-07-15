@@ -107,7 +107,6 @@ function init(){
 	}
 
 	//for drawing score
-	ctx1.fillStyle = "white";
 	ctx1.font ="30px Roboto";
 	ctx1.textAlign = "center"; //left, center, right
 	
@@ -142,10 +141,13 @@ function gameloop(){
 }
 
 function onMouseMove(e){
-	if(e.offSetX || e.layerX){
-		mx = e.offsetX == undefined ? e.layerX : e.offsetX;
-		my = e.offsetY == undefined ? e.layerY : e.offsetY;
+	if(!data.gameOver){
+		if(e.offSetX || e.layerX){
+			mx = e.offsetX == undefined ? e.layerX : e.offsetX;
+			my = e.offsetY == undefined ? e.layerY : e.offsetY;
+		}
 	}
+	
 }
 
 
