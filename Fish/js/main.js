@@ -23,6 +23,9 @@ var fruit;
 var mom;
 
 var baby
+var babyTail = [];
+var babyEye = [];
+var babyBody = [];
 
 //the mouse's position
 var mx;
@@ -65,6 +68,19 @@ function init(){
 
 	mx = canWidth*0.5;
 	my = canHeight*0.5;
+
+	for(var i=0; i<8; i++){
+		babyTail[i] = new Image(); 
+		babyTail[i].src = "./src/babyTail" + i + ".png";
+	}
+	for(var i=0; i<2; i++){
+		babyEye[i] = new Image();
+		babyEye[i].src = "./src/babyEye" + i + ".png";
+	}
+	for(var i=0; i<20; i++){
+		babyBody[i] = new Image();
+		babyBody[i].src = "./src/babyFade" + i + ".png";
+	}
 }
 
 function gameloop(){

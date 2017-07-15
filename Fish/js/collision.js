@@ -1,7 +1,6 @@
 "use strict";
 
 function momFruitsCollision(){
-	console.log("htest on collision");
 	for(var i=0; i<fruit.num; i++){
 		if(fruit.alive[i]){
 			//calculate length
