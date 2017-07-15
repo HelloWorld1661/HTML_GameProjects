@@ -98,13 +98,18 @@ function init(){
 	}
 
 	data = new dataObj(); 
-	
+
 	for(var i=0; i<8; i++){
 		momBodyOra[i] = new Image(); 
 		momBodyBlue[i] = new Image(); 
 		momBodyOra[i].src = "./src/bigSwim" + i + ".png";
 		momBodyBlue[i].src = "./src/bigSwimBlue" + i + ".png";
 	}
+
+	//for drawing score
+	ctx1.fillStyle = "white";
+	ctx1.font ="30px Roboto";
+	ctx1.textAlign = "center"; //left, center, right
 	
 }
 

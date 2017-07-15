@@ -29,7 +29,9 @@ function momBabyCollision(){
 		//baby recover
 		baby.babyBodyCount  = 0;
 		//data -> 0
-		data.reset();
+		// data.reset();
 		mom.momBodyCount =0;
+		//score update
+		data.addScore();
 	}
 }
