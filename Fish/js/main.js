@@ -21,8 +21,23 @@ var ane;
 var fruit; 
 
 var mom;
+var momTail = [];
+var momEye = [];
+var momBodyOra = [];
+var momBodyBlue = [];
 
 var baby
+var babyTail = [];
+var babyEye = [];
+var babyBody = [];
+
+var data;
+var wave;
+
+var halo;
+
+var dust;
+var dustPic = [];
 
 //the mouse's position
 var mx;
@@ -65,6 +80,56 @@ function init(){
 
 	mx = canWidth*0.5;
 	my = canHeight*0.5;
+	// baby fish
+	for(var i=0; i<8; i++){
+		babyTail[i] = new Image(); 
+		babyTail[i].src = "./src/babyTail" + i + ".png";
+	}
+	for(var i=0; i<2; i++){
+		babyEye[i] = new Image();
+		babyEye[i].src = "./src/babyEye" + i + ".png";
+	}
+	for(var i=0; i<20; i++){
+		babyBody[i] = new Image();
+		babyBody[i].src = "./src/babyFade" + i + ".png";
+	}
+	// mom fish 
+	for(var i=0; i<8; i++){
+		momTail[i] = new Image(); 
+		momTail[i].src = "./src/bigTail" + i + ".png";
+	}
+	for(var i=0; i<2; i++){
+		momEye[i] = new Image();
+		momEye[i].src = "./src/bigEye" + i + ".png";
+	}
+
+	data = new dataObj(); 
+
+	for(var i=0; i<8; i++){
+		momBodyOra[i] = new Image(); 
+		momBodyBlue[i] = new Image(); 
+		momBodyOra[i].src = "./src/bigSwim" + i + ".png";
+		momBodyBlue[i].src = "./src/bigSwimBlue" + i + ".png";
+	}
+
+	//for drawing score
+	ctx1.font ="30px Roboto";
+	ctx1.textAlign = "center"; //left, center, right
+
+	wave = new waveObj();
+	wave.init();
+
+	halo = new haloObj();
+	halo.init();
+
+	for (var i = 0; i <7; i++) {
+		dustPic[i] = new Image();
+		dustPic[i].src= "./src/dust" + i + ".png";
+	}
+
+	dust = new dustObj();
+	dust.init();
+
 }
 
 function gameloop(){
@@ -83,18 +148,28 @@ function gameloop(){
 
 	clearCan1();
 	mom.draw();
-
 	baby.draw();
 
 	momFruitsCollision();
+	momBabyCollision();
 
+	data.draw();
+
+	wave.draw();
+	
+	halo.draw();
+	
+	dust.draw();
 }
 
 function onMouseMove(e){
-	if(e.offSetX || e.layerX){
-		mx = e.offsetX == undefined ? e.layerX : e.offsetX;
-		my = e.offsetY == undefined ? e.layerY : e.offsetY;
+	if(!data.gameOver){
+		if(e.offSetX || e.layerX){
+			mx = e.offsetX == undefined ? e.layerX : e.offsetX;
+			my = e.offsetY == undefined ? e.layerY : e.offsetY;
+		}
 	}
+	
 }
 
 
