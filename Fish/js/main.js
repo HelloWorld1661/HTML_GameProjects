@@ -36,8 +36,8 @@ var wave;
 
 var halo;
 
-
-
+var dust;
+var dustPic = [];
 
 //the mouse's position
 var mx;
@@ -121,6 +121,15 @@ function init(){
 
 	halo = new haloObj();
 	halo.init();
+
+	for (var i = 0; i <7; i++) {
+		dustPic[i] = new Image();
+		dustPic[i].src= "./src/dust" + i + ".png";
+	}
+
+	dust = new dustObj();
+	dust.init();
+
 }
 
 function gameloop(){
@@ -150,9 +159,7 @@ function gameloop(){
 	
 	halo.draw();
 	
-
-
-
+	dust.draw();
 }
 
 function onMouseMove(e){

@@ -50,14 +50,13 @@ fruitObj.prototype.draw = function(){
 				this.x[i] = ane.headx[No];
 				this.y[i] = ane.heady[No];
 				this.l[i] += this.spd[i] * deltaTime;
-				// ctx2.drawImage(pic,  this.x[i]- this.l[i]*0.5,  this.y[i]- this.l[i]*0.5,  this.l[i], this.l[i] );
 
 			}else{
 				this.y[i] -= this.spd[i] * 3 * deltaTime;
 
 			}
-				ctx2.drawImage(pic,  this.x[i]- this.l[i]*0.5,  this.y[i]- this.l[i]*0.5,  this.l[i], this.l[i] );
 
+			ctx2.drawImage(pic,  this.x[i]- this.l[i]*0.5,  this.y[i]- this.l[i]*0.5,  this.l[i], this.l[i] );
 
 			if(this.y[i]<10){
 				this.alive[i] =false;
@@ -67,10 +66,6 @@ fruitObj.prototype.draw = function(){
 }
 
 fruitObj.prototype.born = function(i){ 
-
-	// this.x[i] = ane.headx[aneID];
-	// this.y[i] = ane.heady[aneID];
-
 	this.aneNo[i] = Math.floor(Math.random()* ane.num); //[0-49] 
 	this.l[i] = 0;
 	this.alive[i] = true;
