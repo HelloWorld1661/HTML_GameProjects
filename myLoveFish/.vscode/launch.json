@@ -1,12 +1,11 @@
 {
     "version": "0.2.0",
     "configurations": [
-        
         {
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            
+            "url": "file:///Users/Jon/Desktop/GitHub/HTML_GameProjects/myLoveFish/index.html",
             "webRoot": "${workspaceRoot}"
         },
         {
