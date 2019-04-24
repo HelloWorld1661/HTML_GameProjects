@@ -8,7 +8,7 @@ project key word:
 * HTML5
 * VanillaJS(plain javascript)
 
-![lovefish](https://helloworld1661.github.io/HTML_GameProjects/public/images/lovefish.png)
+![lovefish](https://helloworld1661.github.io/HTML_GameProjects/public/images/lovefish.gif)
 
 [Click me to play the game](https://helloworld1661.github.io/HTML_GameProjects/myLoveFish/index.html)
 
