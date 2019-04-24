@@ -10,4 +10,5 @@ project key word:
 
 ![lovefish](https://helloworld1661.github.io/HTML_GameProjects/public/images/lovefish.png)
 
-[Click me to play the ganme](https://helloworld1661.github.io/HTML_GameProjects/myLoveFish/index.html)
+[Click me to play the game](https://helloworld1661.github.io/HTML_GameProjects/myLoveFish/index.html)
+
